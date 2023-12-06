@@ -3,4 +3,10 @@
  - Component 활용
  - useState 데이터 상태 저장
  - map 메소드 활용
+## AddTodo 구현하기
+ - 로직 분리 Component 활용
+ - useState 활용
+ - 콜백함수 활용
+ - 페이지가 reFresh 되지 않게 e.preventDefault()함수 활용
+ - 공백 값도 추가 되는 현상 방지 (trim 함수 활용)
 
