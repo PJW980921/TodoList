@@ -8,7 +8,7 @@ export default function AddTodo({onAdd}) {
     if(text.trim().length === 0){
       return;
     }
-    onAdd({id : '', text , status:'active'});
+    onAdd({id : '', text , status:'진행 중'});
     setText('');
   }
   return (

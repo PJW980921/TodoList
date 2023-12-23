@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import AddTodo from "../AddTodo/AddTodo";
 import TodoUtils from "../TodoUtils/TodoUtils";
 
-export default function TodoList() {
+
+export default function TodoList({ names }) {
+  const [todos, setTodos] = useState([
+    { id: "1", text: "장보기", status: "진행 중" },
+    { id: "2", text: "공부하기", status: "진행 중" },
+  ]);
   const handleAdd = (todo) => setTodos([...todos, todo]);
 
   const handleUpdate = (updated) =>
@@ -11,15 +16,12 @@ export default function TodoList() {
   const handleDelete = (deleted) =>
     setTodos(todos.filter((t) => t.id !== deleted.id));
 
-  const [todos, setTodos] = useState([
-    { id: "1", text: "장보기", status: "active" },
-    { id: "2", text: "공부하기", status: "active" },
-  ]);
+  const nameAll = getNameAll(todos, names);
 
   return (
     <section>
       <ul>
-        {todos.map((item) => (
+        {nameAll.map((item) => (
           <TodoUtils
             key={item.id}
             todo={item}
@@ -32,3 +34,11 @@ export default function TodoList() {
     </section>
   );
 }
+
+function getNameAll(todos, names) {
+  if (names === "전체") {
+    return todos;
+  }
+  return todos.filter((todo) => todo.status === names);
+}
+
