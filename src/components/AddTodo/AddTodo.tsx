@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 
-export default function AddTodo({onAdd}) {
-  const [text , setText] = useState('');
-  const handleChange = (e) => setText(e.target.value);
-  const handleSubmit = (e) => {
+interface AddPropsType {
+  onAdd : any;
+}
+
+export default function AddTodo({onAdd} : AddPropsType) : JSX.Element {
+  const [text , setText] = useState<string>('');
+  const handleChange = (e: { target: { value: React.SetStateAction<string>; }; }) => setText(e.target.value);
+  const handleSubmit = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     if(text.trim().length === 0){
       return;
