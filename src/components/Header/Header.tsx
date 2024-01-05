@@ -28,12 +28,12 @@ font-family: 'Nanum Pen Script', cursive;
 `
 
 
-export default function Header({ BtnNames,onBtnNameChange } : any)  : JSX.Element{
+export default function Header<T>({ BtnNames,onBtnNameChange } : T )  : JSX.Element{
   return (
     <HeaderStyle>
       <NavStyle>
       <UlStyle>
-        {BtnNames.map((value : any, index : any) => (
+        {BtnNames.map((value : number, index : strind | number) => (
           <li key={index}>
             <BtnStyle onClick={() => onBtnNameChange(value)}>{value}</BtnStyle>
           </li>
