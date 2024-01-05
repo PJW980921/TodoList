@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
 
-interface AddPropsType {
-  onAdd : any;
-}
-
-export default function AddTodo({onAdd} : AddPropsType) : JSX.Element {
+export default function AddTodo<T>({onAdd : T}) : JSX.Element {
   const [text , setText] = useState<string>('');
   const handleChange = (e: { target: { value: React.SetStateAction<string>; }; }) => setText(e.target.value);
   const handleSubmit = (e: { preventDefault: () => void; }) => {
@@ -12,7 +8,7 @@ export default function AddTodo({onAdd} : AddPropsType) : JSX.Element {
     if(text.trim().length === 0){
       return;
     }
-    onAdd({id : '', text , status:'진행 중'});
+    onAdd<string>({id : '', text , status:'진행 중'});
     setText('');
   }
   return (
