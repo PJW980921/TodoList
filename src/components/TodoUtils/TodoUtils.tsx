@@ -2,12 +2,12 @@ import React from "react";
 import { FcEmptyTrash } from "react-icons/fc";
 
 
-export default function TodoUtils({ todo, onUpdate, onDelete } : any)  {
+export default function TodoUtils({ todo, onUpdate, onDelete } : unknown)  {
   const { text, status } = todo;
   const handleDelete = () => {
     onDelete(todo);
   };
-  const handleChange = (e : any) => {
+  const handleChange = (e : unknown) => {
     const status = e.target.checked ? "진행 완료" : "진행 중";
     onUpdate({ ...todo, status });
   };
